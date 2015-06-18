@@ -67,7 +67,7 @@ In effect, the golang len(string) has to be made faster.
 
 #+CAPTION: Benchmarks for custmoized string liv vs the go standard string library
 #+NAME: fig: String libraries benchmarks
-[[./benchmarks.jpg]]
+[[./benchmarks.gif]]
 
 
 
