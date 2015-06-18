@@ -40,7 +40,7 @@ and below are the benchmark results
 
 #+tblname: benchmarks
 
-| ns/op customized lib | ns/op std lib |
+| ns/op customized string lib | ns/op std string lib |
 |----------------------+---------------|
 |                 1308 |          1639 |
 |                 1295 |          1663 |
