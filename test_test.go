@@ -2,25 +2,24 @@ package main
 
 import (
 	"bufio"
+	"log"
+	"math/rand"
 	"os"
-  "log"
-  "math/rand"
+	"strings"
 
 	"testing"
 )
 
-
 func BenchmarkStr(b *testing.B) {
-  words, _ := readLines("wordlist.txt")
-  rand.Seed(37)
+	words, _ := readLines("wordlist.txt")
+	substrings := 0
 	b.ResetTimer()
 	for n := 0; n < b.N; n++ {
-    left := words[rand.Intn(len(words))]
-    right := words[rand.Intn(len(words))]
-    log.Printf("[%v] [%v]\n", left, right)
-    substring(left, right)
-
+		if strings.Contains(words[rand.Intn(len(words))], words[rand.Intn(len(words))]) {
+			substrings++
+		}
 	}
+	log.Printf("Total substring matches: %v Total comparisons: %v Percent: %0.5f\n", substrings, b.N, 100.0*float64(substrings)/float64(b.N))
 }
 
 func readLines(path string) ([]string, error) {
